@@ -65,9 +65,9 @@ export async function disciplinesRoutes(app: FastifyInstance) {
 
     const { id } = getDisciplineParamsSchema.parse(request.params)
 
-    const transaction = await knex('disciplines').where('id', id).first()
+    const discipline = await knex('disciplines').where('id', id).first()
 
-    return { transaction }
+    return { discipline }
   })
 
   app.post('/', async (request, reply) => {
